@@ -1,0 +1,36 @@
+---
+
+
+---
+
+<script>
+  const heroContainer = document.getElementById('hero-container') as HTMLDivElement;
+  const width = heroContainer.clientWidth;
+  const height = heroContainer.clientHeight;
+  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+  canvas.width = width;
+  canvas.height = height;
+
+    declare const rive: any;
+    const r = new rive.Rive({
+      src: '/bafi-hero.riv',
+      canvas: canvas,     
+      autoplay: true,
+      artboard: 'main-artboard',
+      stateMachines: 'main-state-machine',
+
+     
+    });
+  </script>
+  <div class="hero-container" id="hero-container">
+    <canvas id="hero-canvas" class="cursor-pointer active:cursor-[pointer-down]"></canvas>
+  </div>
+  <style>
+    .hero-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>

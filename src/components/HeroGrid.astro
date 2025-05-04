@@ -1,0 +1,88 @@
+---
+import BafiHero from "./BafiHero.astro"
+---
+
+<div class="hero-grid">
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-canvas">
+        <BafiHero/>
+    </div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+    <div class="hero-grid-item"></div>
+</div>
+<script>
+    console.log('TEST')
+    declare const rive: any;
+    window.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const heroGridContainer = document.getElementById('hero-grid-container');
+            const heroGridContainerRect = heroGridContainer?.getBoundingClientRect();
+            const heroGridContainerWidth = heroGridContainerRect?.width;
+            const heroGridContainerHeight = heroGridContainerRect?.height;
+            
+            const heroGridCanvas = document.getElementById('hero-grid') as HTMLCanvasElement;
+            if (!heroGridCanvas) {
+                throw new Error('Canvas element not found');
+            }
+            
+            heroGridCanvas.width = heroGridContainerWidth ?? 0;
+            heroGridCanvas.height = heroGridContainerHeight ?? 0;
+            
+            const r = new rive.Rive({
+                src: '/bafi-hero.riv',
+                canvas: heroGridCanvas,
+                autoplay: true,
+                stateMachines: 'main-state-machine',
+                onLoad: () => {
+                    console.log('Rive animation loaded successfully');
+                },
+                onError: (err: Error) => {
+                    console.error('Rive animation error:', err);
+                }
+            });
+        } catch (error) {
+            console.error('Error initializing Rive:', error);
+        }
+    });
+</script>
+<script is:inline src="https://unpkg.com/@rive-app/canvas@latest"></script>
+<style>
+    .hero-grid {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+        grid-template-rows: 1fr 4fr 4fr 4fr 4fr 1fr;
+        gap: 0;
+        background-color: var(--brand-dark-background);
+    }
+    .hero-grid-canvas {
+        grid-column: 2 / 5;
+        grid-row: 2 / 5;
+        background-color: var(--brand-primary);
+        aspect-ratio: 1440 / 960;
+        z-index: 10;
+        box-shadow: 0 0 24px var(--brand-primary); 
+    }
+    #hero-grid{
+        z-index: 12;
+    }
+    .hero-grid-item {
+        background-color: var(--brand-dark-background);
+        border: 1px solid var(--brand-primary);
+        opacity: 0.5;
+    }
+</style>

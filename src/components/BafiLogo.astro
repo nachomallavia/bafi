@@ -1,0 +1,29 @@
+---
+
+
+---
+
+<script>
+    declare const rive: any;
+    const r = new rive.Rive({
+      src: '/logo_bafi.riv',
+      canvas: document.getElementById('logo-canvas'),
+      autoplay: true,
+      stateMachines: 'State Machine 2',
+
+     
+    });
+  </script>
+  
+  <div class="logo-container">
+    <canvas id="logo-canvas" width="480" height="240" class="cursor-pointer active:cursor-[pointer-down]"></canvas>
+  </div>
+  <style>
+    .logo-container {
+      width: 100%;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
