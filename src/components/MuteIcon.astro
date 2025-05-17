@@ -1,5 +1,28 @@
 ---
 import { Icon } from 'astro-icon/components';
 ---
-
-<Icon name="octicon--mute-24" size="32" />
+<div class="icon-box cursor-pointer hover:scale-110 transition-all duration-300" id="mute-icon-box">
+    <Icon name="octicon--mute-24" size="32" id="mute-icon" />
+    <Icon name="octicon--unmute-24" size="32" class="hidden" id="unmute-icon" />
+</div>
+<script>
+    const muteIconBox = document.getElementById('mute-icon-box');
+    const muteIcon = document.getElementById('mute-icon');
+    const unmuteIcon = document.getElementById('unmute-icon');
+    muteIconBox?.addEventListener('click', () => {
+        muteIcon?.classList.toggle('hidden');
+        unmuteIcon?.classList.toggle('hidden');
+    });
+</script>
+<style>
+    .icon-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--brand-primary);
+        border-radius: 50%;
+        padding: 4px;
+        width: 32px;
+        height: 32px;
+    }
+</style>
