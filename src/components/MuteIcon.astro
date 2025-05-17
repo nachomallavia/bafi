@@ -9,10 +9,33 @@ import { Icon } from 'astro-icon/components';
     const muteIconBox = document.getElementById('mute-icon-box');
     const muteIcon = document.getElementById('mute-icon');
     const unmuteIcon = document.getElementById('unmute-icon');
+    let muted = false;
     muteIconBox?.addEventListener('click', () => {
         muteIcon?.classList.toggle('hidden');
         unmuteIcon?.classList.toggle('hidden');
+        muted = !muted;
+        if (muted) {
+            mutePage();
+        } else {
+            unmutePage();
+        }
     });
+
+    function mutePage() {
+        document.querySelectorAll("video, audio").forEach(element => {
+            element.muted = true;
+        });
+    }
+
+    function unmutePage() {
+        document.querySelectorAll("video, audio").forEach(element => {
+            element.muted = false;
+        });
+    }
+
+    // Call the function to mute all audio and video elements
+
+
 </script>
 <style>
     .icon-box{
