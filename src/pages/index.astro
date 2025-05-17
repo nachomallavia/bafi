@@ -3,13 +3,17 @@
 import Layout from '../layouts/Layout.astro';
 import HeroGrid from '../components/HeroGrid.astro';
 import SecondSection from '../components/SecondSection.astro';
-
+import BafiHeader from '../components/BafiHeader.astro';
+import ThirdSection from '../components/ThirdSection.astro';
 ---
 
 <Layout title="Bafi">
 	<HeroGrid />
-
-	<SecondSection />
+	<div class="rest-content">
+		<BafiHeader />
+		<SecondSection />
+		<ThirdSection />
+	</div>
 </Layout>
 
 <style>

@@ -1,0 +1,37 @@
+---
+
+
+---
+
+<script>
+  const menuContainer = document.getElementById('menu-container') as HTMLDivElement;
+  const width = menuContainer.clientWidth;
+  const height = menuContainer.clientHeight;
+  const canvas = document.getElementById('menu-canvas') as HTMLCanvasElement;
+  canvas.width = width;
+  canvas.height = height;
+
+    declare const rive: any;
+    const r = new rive.Rive({
+      src: '/menu-icon.riv',
+      canvas: canvas,     
+      autoplay: true,
+      artboard: 'menuIcon',
+      stateMachines: 'State Machine 1',
+
+     
+    });
+    
+  </script>
+  <div class="menu-container" id="menu-container">
+    <canvas id="menu-canvas" class="cursor-pointer active:cursor-[pointer-down]"></canvas>
+  </div>
+  <style>
+    .menu-container {
+      width: 80px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>

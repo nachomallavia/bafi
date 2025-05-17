@@ -2,15 +2,15 @@
 
 ---
 
-<section class="second-section">
+<section class="third-section">
     <div class="container">
-        <h2 class="secondary-text text-8xl light-weight mb-8">Second Section_</h2>
+        <h2 class="secondary-text text-8xl light-weight mb-8">Third Section_</h2>
         <p class="text-lg w-full">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
             Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
             </p>
     </div>
     <div class="background-gradient"></div>
-    <div id="background-grid"></div>
+    <!-- <div id="background-grid"></div> -->
 </section>
 <script >
     const grid = document.getElementById('background-grid');
@@ -28,14 +28,13 @@
     }
 </script>
 <style>
-	.second-section {
+	.third-section {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
         width: 100%;
         height: 100vh;
         position: relative;
-
 	}
     .container {
         position: relative;
@@ -64,10 +63,10 @@
     }
     .background-gradient {
         position: absolute;
-        bottom: 0;
-        height: 50%;
+        top: 0;
+        height: 100%;
         width: 100%;
-        background: linear-gradient(to top,  var(--brand-light-background), var(--brand-primary), var(--brand-dark-background), transparent);
+        background: linear-gradient(to bottom,  var(--brand-light-background),var(--brand-light-background) 80%, var(--brand-primary));
         mix-blend-mode: lighten;
         /* opacity: 0.5; */
         z-index: 1;
