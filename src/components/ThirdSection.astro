@@ -10,23 +10,8 @@
             </p>
     </div>
     <div class="background-gradient"></div>
-    <!-- <div id="background-grid"></div> -->
 </section>
-<script >
-    const grid = document.getElementById('background-grid');
-    const gridSize = 80;
-    if (!grid) return;
-    const gridWidth = grid.clientWidth;
-    const gridHeight = grid.clientHeight;
-    const gridArea = gridSize * gridSize;
-    const gridAreaWidth = gridWidth / gridSize;
-    const gridAreaHeight = gridHeight / gridSize;
-    for (let i = 0; i < gridArea; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        grid.appendChild(cell);
-    }
-</script>
+
 <style>
 	.third-section {
 		display: flex;

@@ -23,13 +23,13 @@ import { Icon } from 'astro-icon/components';
 
     function mutePage() {
         document.querySelectorAll("video, audio").forEach(element => {
-            element.muted = true;
+            (element as HTMLMediaElement).muted = true;
         });
     }
 
     function unmutePage() {
         document.querySelectorAll("video, audio").forEach(element => {
-            element.muted = false;
+            (element as HTMLMediaElement).muted = false;
         });
     }
 
