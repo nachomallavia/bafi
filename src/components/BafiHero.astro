@@ -11,19 +11,30 @@
   canvas.width = width;
   canvas.height = height;
 
+
+  let muted = false;
     declare const rive: any;
     const r = new rive.Rive({
       src: '/bafi-hero.riv',
       canvas: canvas,     
       autoplay: true,
       artboard: 'main-artboard',
-      stateMachines: 'main-state-machine',
-
-     
+      stateMachines: 'main-state-machine'      
     });
+    const mainArtboard = r.artboard('main-artboard');
+    console.log(mainArtboard)
+    const muteIcon = document.getElementById('mute-icon-box')
+    if(muteIcon){
+
+    muteIcon.addEventListener('click', () => {
+        muted = !muted;
+
+        mainArtboard.setBooleanInput('muted', muted, 'Logo');
+    });
+  }
   </script>
   <div class="hero-container" id="hero-container">
-    <canvas id="hero-canvas" class="cursor-pointer active:cursor-[pointer-down]"></canvas>
+    <canvas id="hero-canvas" class="cursor-none active:cursor-[pointer-down]"></canvas>
   </div>
   <style>
     .hero-container {
